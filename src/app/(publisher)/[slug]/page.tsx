@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { articles, getArticle } from "@/data/publisher";
+import { articles, amazonSearchUrl, getArticle } from "@/data/publisher";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
@@ -27,7 +27,7 @@ export default async function ArticlePage({
   const article = getArticle(slug);
   if (!article) notFound();
 
-  const amazonUrl = `https://www.amazon.sa/s?k=${encodeURIComponent(article.amazonQuery)}`;
+  const amazonUrl = amazonSearchUrl(article.amazonQuery);
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-12">

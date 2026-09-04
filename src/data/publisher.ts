@@ -5,10 +5,19 @@ export const publisher = {
   description:
     "مقالات مقارنة وشرح عملي لمساعدة المشتري العربي على القرار، مع إفصاح واضح عندما يحتوي النص على روابط عمولة.",
   contactEmail: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || "").trim(),
+  amazonAssociateTag: (process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG || "ikhtiyar-21").trim(),
 };
 
 export function getContactEmail() {
   return publisher.contactEmail;
+}
+
+export function amazonSearchUrl(query: string) {
+  const params = new URLSearchParams({ k: query });
+  if (publisher.amazonAssociateTag) {
+    params.set("tag", publisher.amazonAssociateTag);
+  }
+  return `https://www.amazon.sa/s?${params.toString()}`;
 }
 
 export type Article = {
