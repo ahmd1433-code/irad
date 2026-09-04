@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { PublicDomainGuide } from "@/components/public-domain-guide";
 import { CopyField } from "@/components/copy-field";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -182,34 +183,9 @@ export function AmazonApplyGuide() {
         </ul>
       </section>
 
-      <section className="rounded-2xl border border-border bg-card p-5 text-sm leading-7">
-        <h2 className="font-semibold">كيف تحصل على نطاق علني (مجاني)</h2>
-        <ol className="mt-3 list-decimal space-y-2 ps-5 text-muted-foreground">
-          <li>ارفع المشروع إلى GitHub (من زر إنشاء المستودع إن لم يكن موجودًا).</li>
-          <li>
-            ادخل إلى{" "}
-            <a
-              href="https://vercel.com/new"
-              target="_blank"
-              rel="noreferrer"
-              className="text-foreground underline"
-            >
-              vercel.com/new
-            </a>{" "}
-            واستورد المستودع. الإطار: Next.js، دون تغييرات.
-          </li>
-          <li>
-            في Environment Variables أضف{" "}
-            <span dir="ltr">NEXT_PUBLIC_CONTACT_EMAIL</span> ببريدك الحقيقي،
-            و<span dir="ltr">NEXT_PUBLIC_SITE_URL</span> بعنوان النشر بعد أول
-            نشر (مثل <span dir="ltr">https://xxxxx.vercel.app</span>).
-          </li>
-          <li>
-            بعد النشر افتح{" "}
-            <span dir="ltr">https://نطاقك/site</span> من بيانات الجوال. إذا
-            ظهرت مقالات اختيار، الصق ذلك النطاق في الحقل أعلاه.
-          </li>
-        </ol>
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">كيف تحصل على نطاق علني</h2>
+        <PublicDomainGuide />
       </section>
 
       <section className="rounded-2xl bg-secondary p-5 text-sm leading-7">

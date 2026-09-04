@@ -28,6 +28,9 @@ export function SiteFooter() {
           <Link href="/zero" className="hover:text-primary">
             بلا رأس مال
           </Link>
+          <Link href="/deploy" className="hover:text-primary">
+            نطاق علني
+          </Link>
           <Link href="/apply/amazon" className="hover:text-primary">
             طلب أمازون
           </Link>

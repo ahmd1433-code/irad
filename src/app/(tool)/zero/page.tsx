@@ -18,9 +18,13 @@ export default function ZeroCapitalPage() {
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
         هذا ليس دروب شيبينغ ولا FBA. أنت تسوّق محتوى، والمنصة تبيع. الحزمة
         تضيف البرامج إلى خطتك وتربطها بمقالات موقع اختيار. التسجيل الرسمي
-        والضريبة يبقيان بيدك. إذا فتح أمازون حقول الموقع والجوال،{" "}
+        والضريبة يبقيان بيدك. أولًا{" "}
+        <Link href="/deploy" className="text-foreground underline">
+          انشر نطاقًا علنيًا
+        </Link>
+        ، ثم عبّئ{" "}
         <Link href="/apply/amazon" className="text-foreground underline">
-          هذه صفحة التعبئة
+          طلب أمازون
         </Link>
         .
       </p>

@@ -38,10 +38,13 @@ export default function SiteChecklistPage() {
       <h1 className="text-3xl font-semibold">المواقع والصفحات المطلوبة</h1>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
         أمازون أسوشيتس وأوين وبوكينغ يطلبون موقعًا حيًا بمحتوى حقيقي لا
-        localhost على جهازك فقط. انشر المشروع على نطاق عام ثم قدّم. لتعبئة حقول
-        أمازون (الموقع والجوال) استخدم{" "}
+        localhost على جهازك فقط.{" "}
+        <Link href="/deploy" className="text-foreground underline">
+          كيف تحصل على نطاق علني
+        </Link>{" "}
+        ثم عبّئ{" "}
         <Link href="/apply/amazon" className="text-foreground underline">
-          دليل طلب أسوشيتس
+          طلب أسوشيتس
         </Link>
         .
       </p>

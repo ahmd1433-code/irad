@@ -34,15 +34,13 @@ npm start
 
 ## النشر العلني (مطلوب لأمازون)
 
-أمازون يرفض `localhost`. انشر المشروع على [Vercel](https://vercel.com/new) ثم افتح `https://نطاقك/site`.
+لا تشتري دومينًا. انشر على [Vercel](https://vercel.com/new) لتحصل على `https://اسمك.vercel.app`.
 
-في متغيرات البيئة:
+1. ارفع المشروع إلى GitHub (زر إنشاء المستودع إن لزم).
+2. سجّل في Vercel بحساب GitHub وانشر المستودع (Next.js يُكتشف تلقائيًا).
+3. أضف `NEXT_PUBLIC_CONTACT_EMAIL` و`NEXT_PUBLIC_SITE_URL` ثم أعد النشر.
+4. افتح `https://نطاقك/site` من بيانات الجوال.
 
-```
-NEXT_PUBLIC_SITE_URL=https://your-domain.example
-NEXT_PUBLIC_CONTACT_EMAIL=you@example.com
-```
-
-بعدها عبّئ الطلب من `/apply/amazon`. الجوال لرمز تحقق برسالة — لا تشارك الرمز.
+التفاصيل داخل التطبيق: `/deploy`. بعدها عبّئ `/apply/amazon`. الجوال لرمز تحقق برسالة — لا تشارك الرمز.
 
 النسب والشروط تتغير. تحقق من الصفحة الرسمية لكل برنامج قبل الاعتماد على أي رقم. المحتوى تعليمي وليس استشارة مالية.
