@@ -7,7 +7,13 @@ export const metadata: Metadata = {
     "وكيل محلي يدير خطتك ضمن الصلاحيات التي تمنحها، دون التسجيل الرسمي أو الإنفاق أو رفع الهوية.",
 };
 
-export default function AgentPage() {
+export default async function AgentPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ do?: string }>;
+}) {
+  const params = await searchParams;
+
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-10">
       <p className="text-sm font-medium text-primary">يعمل بالنيابة عنك</p>
@@ -18,7 +24,7 @@ export default function AgentPage() {
         أنت بالأمور الضرورية.
       </p>
       <div className="mt-8">
-        <AgentConsole />
+        <AgentConsole initialDo={params.do} />
       </div>
     </div>
   );

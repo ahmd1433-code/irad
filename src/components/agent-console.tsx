@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { runAgent } from "@/lib/agent/engine";
 import {
@@ -13,6 +13,7 @@ import {
 } from "@/lib/agent/types";
 import { useAgentSettings } from "@/hooks/use-agent-settings";
 import { useSavedPrograms } from "@/hooks/use-saved-programs";
+import type { SavedProgram } from "@/lib/types";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -23,39 +24,84 @@ const presets = [
   "سجّلني في أمازون",
 ];
 
-export function AgentConsole() {
+function commandsFromDo(value?: string) {
+  if (!value) return [];
+  return value
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      if (part === "week" || part === "weekly") return "شغّل أسبوع العمل";
+      if (part === "amazon") return "سجّلني في أمازون";
+      return part;
+    });
+}
+
+export function AgentConsole({ initialDo }: { initialDo?: string }) {
   const { items, save, update } = useSavedPrograms();
   const { permissions, profile, log, setPermissions, setProfile, appendRun } =
     useAgentSettings();
-  const [command, setCommand] = useState("شغّل أسبوع العمل");
-  const [latest, setLatest] = useState<AgentRun | null>(log[0] ?? null);
+  const queued = commandsFromDo(initialDo);
+  const [command, setCommand] = useState(
+    queued[0] ?? "شغّل أسبوع العمل"
+  );
+  const [sessionRuns, setSessionRuns] = useState<AgentRun[]>([]);
+  const didAutorun = useRef(false);
 
-  function applyExecuted(run: AgentRun) {
+  function applyToPlan(run: AgentRun, plan: SavedProgram[]): SavedProgram[] {
+    let next = plan;
     for (const item of run.executed) {
       if (item.kind === "add_program" && item.slug) {
         save(item.slug, "considering");
+        if (!next.some((entry) => entry.slug === item.slug)) {
+          next = [
+            ...next,
+            { slug: item.slug, status: "considering", note: "" },
+          ];
+        }
       }
       if (item.kind === "write_note" && item.slug && item.note) {
         update(item.slug, { note: item.note });
+        next = next.map((entry) =>
+          entry.slug === item.slug ? { ...entry, note: item.note ?? "" } : entry
+        );
       }
       if (item.kind === "update_status" && item.slug && item.status) {
         save(item.slug, item.status);
         update(item.slug, { status: item.status });
+        next = next.map((entry) =>
+          entry.slug === item.slug ? { ...entry, status: item.status! } : entry
+        );
       }
     }
+    return next;
   }
 
-  function run(nextCommand: string) {
-    const result = runAgent({
-      command: nextCommand,
-      plan: items,
-      permissions,
-      profile,
-    });
-    applyExecuted(result);
-    appendRun(result);
-    setLatest(result);
+  function runSequence(commands: string[]) {
+    let plan = items;
+    const produced: AgentRun[] = [];
+    for (const nextCommand of commands) {
+      const result = runAgent({
+        command: nextCommand,
+        plan,
+        permissions,
+        profile,
+      });
+      plan = applyToPlan(result, plan);
+      appendRun(result);
+      produced.push(result);
+    }
+    if (produced.length) setSessionRuns(produced);
   }
+
+  useEffect(() => {
+    if (!queued.length || didAutorun.current) return;
+    didAutorun.current = true;
+    runSequence(queued);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run URL commands a single time
+  }, []);
+
+  const visibleRuns = sessionRuns.length ? sessionRuns : log[0] ? [log[0]] : [];
 
   return (
     <div className="space-y-8">
@@ -190,19 +236,29 @@ export function AgentConsole() {
         <button
           type="button"
           className={cn(buttonVariants({ size: "lg" }), "mt-4")}
-          onClick={() => run(command)}
+          onClick={() => runSequence([command])}
         >
           نفّذ ضمن صلاحياتي
         </button>
       </section>
 
-      {latest ? <RunCard run={latest} /> : null}
+      {visibleRuns.map((run) => (
+        <RunCard key={`${run.at}-${run.command}`} run={run} />
+      ))}
 
-      {log.length > 1 ? (
+      {log.length > visibleRuns.length ? (
         <section>
           <h2 className="text-lg font-semibold">سجل التشغيل</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            {log.slice(1, 6).map((item) => (
+            {log
+              .filter(
+                (item) =>
+                  !visibleRuns.some(
+                    (run) => run.at === item.at && run.command === item.command
+                  )
+              )
+              .slice(0, 6)
+              .map((item) => (
               <li key={item.at} className="rounded-xl border border-border p-3">
                 <p className="font-medium text-foreground">{item.command}</p>
                 <p className="mt-1">{item.summary}</p>
