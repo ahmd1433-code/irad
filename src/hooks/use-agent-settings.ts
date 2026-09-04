@@ -48,7 +48,7 @@ let logRaw: string | null = null;
 
 function getPerms(): AgentPermissions {
   const raw = window.localStorage.getItem(PERMS_KEY);
-  if (raw === permsRaw && permsRaw !== null) return permsSnap;
+  if (raw === permsRaw) return permsSnap;
   permsRaw = raw;
   permsSnap = { ...defaultPermissions, ...readJson(PERMS_KEY, defaultPermissions) };
   return permsSnap;
@@ -56,7 +56,7 @@ function getPerms(): AgentPermissions {
 
 function getProfile(): AgentProfile {
   const raw = window.localStorage.getItem(PROFILE_KEY);
-  if (raw === profileRaw && profileRaw !== null) return profileSnap;
+  if (raw === profileRaw) return profileSnap;
   profileRaw = raw;
   profileSnap = { ...defaultProfile, ...readJson(PROFILE_KEY, defaultProfile) };
   return profileSnap;
@@ -64,7 +64,7 @@ function getProfile(): AgentProfile {
 
 function getLog(): AgentRun[] {
   const raw = window.localStorage.getItem(LOG_KEY);
-  if (raw === logRaw && logRaw !== null) return logSnap;
+  if (raw === logRaw) return logSnap;
   logRaw = raw;
   const parsed = readJson<AgentRun[]>(LOG_KEY, []);
   logSnap = Array.isArray(parsed) ? parsed.slice(0, 20) : [];
