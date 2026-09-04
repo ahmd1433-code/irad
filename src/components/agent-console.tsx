@@ -33,6 +33,7 @@ function commandsFromDo(value?: string) {
     .map((part) => {
       if (part === "week" || part === "weekly") return "شغّل أسبوع العمل";
       if (part === "amazon") return "سجّلني في أمازون";
+      if (part === "zero") return "أضف برامج بدون رأس مال";
       return part;
     });
 }

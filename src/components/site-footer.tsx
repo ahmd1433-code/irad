@@ -25,6 +25,9 @@ export function SiteFooter() {
           <Link href="/compare" className="hover:text-primary">
             المقارنة
           </Link>
+          <Link href="/zero" className="hover:text-primary">
+            بلا رأس مال
+          </Link>
           <Link href="/site" className="hover:text-primary">
             موقع المحتوى
           </Link>
