@@ -27,7 +27,7 @@ export default async function ArticlePage({
   const article = getArticle(slug);
   if (!article) notFound();
 
-  const amazonUrl = amazonSearchUrl(article.amazonQuery);
+  const amazonUrl = article.amazonHref ?? amazonSearchUrl(article.amazonQuery);
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-12">

@@ -28,6 +28,7 @@ export type Article = {
   updated: string;
   body: { heading?: string; paragraphs: string[] }[];
   amazonQuery: string;
+  amazonHref?: string;
 };
 
 export const articles: Article[] = [
@@ -39,6 +40,7 @@ export const articles: Article[] = [
     category: "المنزل",
     updated: "2026-09-04",
     amazonQuery: "مكنسة كهربائية",
+    amazonHref: "https://amzn.to/467S1Zm",
     body: [
       {
         paragraphs: [
