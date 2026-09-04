@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Input } from "@/components/ui/input";
 import { ProgramCard } from "@/components/program-card";
 import { programs } from "@/data/programs";
 import {
@@ -82,11 +81,11 @@ export function ProgramDirectory({
 
   return (
     <div className="space-y-8">
-      <Input
+      <input
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="ابحث: أمازون، نون، أوين، دروب شيبينغ..."
-        className="h-11 text-base"
+        className="h-11 w-full rounded-lg border border-input bg-background px-3 text-base outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
       />
 
       <div className="grid gap-5 md:grid-cols-2">

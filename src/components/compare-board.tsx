@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { programs } from "@/data/programs";
 import {
   capitalLabels,
@@ -136,9 +136,15 @@ export function CompareBoard() {
 
       <div className="flex flex-wrap gap-2">
         {chosen.map((program) => (
-          <Button key={program.slug} variant="outline" size="sm" render={<a href={program.applyUrl} target="_blank" rel="noreferrer" />}>
+          <a
+            key={program.slug}
+            href={program.applyUrl}
+            target="_blank"
+            rel="noreferrer"
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+          >
             سجّل في {program.brand}
-          </Button>
+          </a>
         ))}
       </div>
     </div>

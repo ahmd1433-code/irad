@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -99,69 +99,76 @@ function recommend(answers: Answers) {
 }
 
 export function PathQuiz() {
-  const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
-  const done = step >= questions.length;
-  const question = questions[step];
+  const [submitted, setSubmitted] = useState(false);
+  const complete = questions.every((question) => answers[question.id]);
   const result = useMemo(
-    () => (done ? recommend(answers) : null),
-    [answers, done]
+    () => (submitted && complete ? recommend(answers) : null),
+    [answers, complete, submitted]
   );
+
+  function choose(id: string, value: string) {
+    setAnswers((current) => ({ ...current, [id]: value }));
+    setSubmitted(false);
+  }
 
   return (
     <Card className="border-primary/15 bg-card">
       <CardHeader>
         <CardTitle>أي مسار يناسبك الآن؟</CardTitle>
         <CardDescription>
-          أربعة أسئلة. لا خوارزمية سحرية: النتيجة تمنعك من تقليد فيديو دروب شيبينغ إن كان رأس مالك صفرًا.
+          أجب عن الأسئلة الأربعة ثم اعرض التوصية. النتيجة تمنعك من تقليد فيديو
+          دروب شيبينغ إن كان رأس مالك صفرًا.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-5">
-        {!done && question && (
+      <CardContent className="space-y-6">
+        {!result ? (
           <>
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
-              <span>
-                سؤال {step + 1} من {questions.length}
-              </span>
-              <span className="h-1.5 w-32 overflow-hidden rounded-full bg-muted">
-                <span
-                  className="block h-full bg-primary transition-all"
-                  style={{
-                    width: `${((step + 1) / questions.length) * 100}%`,
-                  }}
-                />
-              </span>
-            </div>
-            <p className="text-base font-medium">{question.title}</p>
-            <div className="grid gap-2">
-              {question.options.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  onClick={() => {
-                    setAnswers((current) => ({
-                      ...current,
-                      [question.id]: option.value,
-                    }));
-                    setStep((current) => current + 1);
-                  }}
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-start text-sm leading-6 transition-colors hover:border-primary hover:bg-primary/5"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+            {questions.map((question, index) => (
+              <fieldset key={question.id} className="space-y-2">
+                <legend className="text-sm font-medium">
+                  {index + 1}. {question.title}
+                </legend>
+                <div className="grid gap-2">
+                  {question.options.map((option) => {
+                    const active = answers[question.id] === option.value;
+                    return (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => choose(question.id, option.value)}
+                        className={cn(
+                          "cursor-pointer rounded-xl border px-4 py-3 text-start text-sm leading-6 transition-colors",
+                          active
+                            ? "border-primary bg-primary/10 text-foreground"
+                            : "border-border bg-background hover:border-primary hover:bg-primary/5"
+                        )}
+                      >
+                        {option.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            ))}
+            <button
+              type="button"
+              disabled={!complete}
+              onClick={() => setSubmitted(true)}
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "w-full cursor-pointer disabled:opacity-50"
+              )}
+            >
+              اعرض التوصية
+            </button>
           </>
-        )}
-
-        {result && (
+        ) : (
           <div className="space-y-4">
-            <div className="rounded-xl bg-primary/8 p-4">
-              <p className="text-xs font-medium text-primary">التوصية</p>
+            <div className="rounded-xl bg-primary p-4 text-primary-foreground">
+              <p className="text-xs font-medium opacity-80">التوصية</p>
               <h3 className="mt-1 text-xl font-semibold">{result.title}</h3>
-              <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                {result.body}
-              </p>
+              <p className="mt-2 text-sm leading-7 opacity-90">{result.body}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {result.programSlugs.map((slug) => {
@@ -185,15 +192,16 @@ export function PathQuiz() {
               >
                 اقرأ المسار كاملًا
               </Link>
-              <Button
-                variant="outline"
+              <button
+                type="button"
+                className={cn(buttonVariants({ variant: "outline" }))}
                 onClick={() => {
-                  setStep(0);
+                  setSubmitted(false);
                   setAnswers({});
                 }}
               >
                 أعد الأسئلة
-              </Button>
+              </button>
             </div>
             <p className="text-xs text-muted-foreground">
               المسار المقترح:{" "}

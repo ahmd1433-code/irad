@@ -1,52 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { programs } from "@/data/programs";
 import { useSavedPrograms } from "@/hooks/use-saved-programs";
 import { statusLabels } from "@/lib/labels";
 import type { SavedStatus } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 export function SaveProgramButton({ slug }: { slug: string }) {
-  const { isSaved, save, remove, ready } = useSavedPrograms();
+  const { isSaved, save, remove } = useSavedPrograms();
   const saved = isSaved(slug);
-
-  if (!ready) {
-    return (
-      <Button variant="outline" disabled>
-        حفظ في خطتي
-      </Button>
-    );
-  }
 
   if (saved) {
     return (
       <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" render={<Link href="/plan" />}>
-          داخل خطتك
-        </Button>
-        <Button variant="ghost" onClick={() => remove(slug)}>
+        <Link
+          href="/plan"
+          className={cn(buttonVariants({ variant: "secondary" }), "justify-center")}
+        >
+          داخل خطتك — اعرضها
+        </Link>
+        <button
+          type="button"
+          className={cn(buttonVariants({ variant: "ghost" }))}
+          onClick={() => remove(slug)}
+        >
           إزالة
-        </Button>
+        </button>
       </div>
     );
   }
 
   return (
-    <Button variant="outline" onClick={() => save(slug)}>
+    <button
+      type="button"
+      className={cn(buttonVariants({ variant: "outline" }), "justify-center")}
+      onClick={() => save(slug)}
+    >
       احفظ في خطتي
-    </Button>
+    </button>
   );
 }
 
 export function PlanBoard() {
-  const { items, ready, update, remove } = useSavedPrograms();
-
-  if (!ready) {
-    return (
-      <p className="text-sm text-muted-foreground">نحمّل خطتك المحفوظة…</p>
-    );
-  }
+  const { items, update, remove } = useSavedPrograms();
 
   if (items.length === 0) {
     return (
@@ -56,9 +54,12 @@ export function PlanBoard() {
           أضف برامجًا من دليل البرامج حتى لا تبقى الفكرة في المحادثة. الخطة
           تُحفظ في هذا المتصفح فقط.
         </p>
-        <Button className="mt-5" render={<Link href="/programs" />}>
+        <Link
+          href="/programs"
+          className={cn(buttonVariants(), "mt-5 inline-flex")}
+        >
           تصفح البرامج
-        </Button>
+        </Link>
       </div>
     );
   }
@@ -110,25 +111,21 @@ export function PlanBoard() {
               }
             />
             <div className="mt-3 flex flex-wrap gap-2">
-              <Button
-                size="sm"
-                render={
-                  <a
-                    href={program.applyUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  />
-                }
+              <a
+                href={program.applyUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ size: "sm" }))}
               >
                 صفحة التسجيل
-              </Button>
-              <Button
-                size="sm"
-                variant="ghost"
+              </a>
+              <button
+                type="button"
+                className={cn(buttonVariants({ size: "sm", variant: "ghost" }))}
                 onClick={() => remove(item.slug)}
               >
                 حذف
-              </Button>
+              </button>
             </div>
           </article>
         );

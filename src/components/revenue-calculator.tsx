@@ -99,10 +99,16 @@ export function RevenueCalculator() {
       </div>
 
       <Tabs defaultValue="affiliate">
-        <TabsList className="h-auto w-full flex-wrap">
-          <TabsTrigger value="affiliate">تسويق بالعمولة</TabsTrigger>
-          <TabsTrigger value="dropship">دروب شيبينغ</TabsTrigger>
-          <TabsTrigger value="reseller">إعادة بيع / FBA</TabsTrigger>
+        <TabsList className="h-auto min-h-10 w-full flex-wrap justify-stretch">
+          <TabsTrigger value="affiliate" className="min-h-9 px-3">
+            تسويق بالعمولة
+          </TabsTrigger>
+          <TabsTrigger value="dropship" className="min-h-9 px-3">
+            دروب شيبينغ
+          </TabsTrigger>
+          <TabsTrigger value="reseller" className="min-h-9 px-3">
+            إعادة بيع / FBA
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="affiliate" className="mt-5 space-y-5">
