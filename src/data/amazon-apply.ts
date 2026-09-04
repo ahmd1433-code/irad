@@ -3,13 +3,13 @@ import { articles } from "@/data/publisher";
 export const amazonProgramUrls = [
   {
     store: "السعودية",
-    href: "https://associates.amazon.sa/",
-    label: "associates.amazon.sa",
+    href: "https://affiliate-program.amazon.sa/",
+    label: "affiliate-program.amazon.sa",
   },
   {
     store: "الإمارات",
-    href: "https://affiliates.amazon.ae/",
-    label: "affiliates.amazon.ae",
+    href: "https://affiliate-program.amazon.ae/",
+    label: "affiliate-program.amazon.ae",
   },
   {
     store: "مصر",

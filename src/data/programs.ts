@@ -25,7 +25,7 @@ export const programs: Program[] = [
     ],
     howToStart: [
       "أنشئ صفحة أو قناة فيها محتوى حقيقي: مراجعات، مقارنات، قوائم أفضل المنتجات.",
-      "قدّم على associates.amazon.sa أو .ae أو .eg حسب جمهورك.",
+      "قدّم على affiliate-program.amazon.sa أو .ae أو .com حسب جمهورك.",
       "اربط حسابك الضريبي/الهوية حسب متطلبات المتجر.",
       "ابدأ بروابط منتجات يبحث عنها الناس يوميًا: أجهزة منزلية، عناية، مستلزمات أطفال.",
     ],
@@ -40,7 +40,7 @@ export const programs: Program[] = [
       "أمازون قد يرفض المواقع الضعيفة أو المنسوخة.",
     ],
     bestFor: "من يملك محتوى أو مقارنة منتجات ويستهدف باحثين جاهزين للشراء.",
-    applyUrl: "https://affiliate-program.amazon.com/",
+    applyUrl: "https://affiliate-program.amazon.sa/",
     featured: true,
     menaFit: "excellent",
     accent: "#232F3E",
