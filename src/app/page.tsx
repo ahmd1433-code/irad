@@ -29,14 +29,14 @@ export default function HomePage() {
               اختر النموذج، ثم البرنامج، ثم خطوة واحدة هذا الأسبوع.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/programs" className={cn(buttonVariants({ size: "lg" }))}>
-                استعرض البرامج
+              <Link href="/agent" className={cn(buttonVariants({ size: "lg" }))}>
+                وكيل يعمل ضمن صلاحياتي
               </Link>
               <Link
-                href="/calculator"
+                href="/programs"
                 className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
               >
-                احسب الإيراد المتوقع
+                استعرض البرامج
               </Link>
             </div>
           </div>

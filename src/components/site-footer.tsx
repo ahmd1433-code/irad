@@ -25,6 +25,9 @@ export function SiteFooter() {
           <Link href="/compare" className="hover:text-primary">
             المقارنة
           </Link>
+          <Link href="/agent" className="hover:text-primary">
+            الوكيل
+          </Link>
           <Link href="/plan" className="hover:text-primary">
             خطتي
           </Link>

@@ -13,6 +13,7 @@ const links = [
   { href: "/calculator", label: "حاسبة الإيراد" },
   { href: "/compare", label: "قارن" },
   { href: "/plan", label: "خطتي" },
+  { href: "/agent", label: "الوكيل" },
 ];
 
 export function SiteHeader() {
@@ -59,13 +60,13 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Link
-            href="/programs"
+            href="/agent"
             className={cn(
               buttonVariants({ size: "sm" }),
               "hidden sm:inline-flex"
             )}
           >
-            ابدأ من البرامج
+            شغّل الوكيل
           </Link>
           <button
             type="button"
