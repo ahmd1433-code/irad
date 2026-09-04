@@ -11,9 +11,9 @@ const links = [
   { href: "/programs", label: "البرامج" },
   { href: "/playbooks", label: "المسارات" },
   { href: "/calculator", label: "حاسبة الإيراد" },
-  { href: "/compare", label: "قارن" },
   { href: "/plan", label: "خطتي" },
   { href: "/agent", label: "الوكيل" },
+  { href: "/site", label: "موقع المحتوى" },
 ];
 
 export function SiteHeader() {

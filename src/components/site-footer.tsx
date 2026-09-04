@@ -25,6 +25,9 @@ export function SiteFooter() {
           <Link href="/compare" className="hover:text-primary">
             المقارنة
           </Link>
+          <Link href="/site" className="hover:text-primary">
+            موقع المحتوى
+          </Link>
           <Link href="/agent" className="hover:text-primary">
             الوكيل
           </Link>

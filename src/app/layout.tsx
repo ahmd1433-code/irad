@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const plex = IBM_Plex_Sans_Arabic({
@@ -27,9 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${plex.variable} h-full antialiased`}
     >
       <body className={`${plex.className} flex min-h-full flex-col`}>
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );
