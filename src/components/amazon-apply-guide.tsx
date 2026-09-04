@@ -91,8 +91,8 @@ export function AmazonApplyGuide() {
           <p className="text-xs leading-6 text-muted-foreground">
             مثال صحيح: نطاق Vercel أو Netlify أو دومينك. المسار الأساسي الذي
             ستلصقه في أمازون هو{" "}
-            <span dir="ltr">{ready ? joinSiteOrigin(origin, "/site") : "…/site"}</span>
-            — ليست الصفحة الرئيسية لإيراد.
+            <span dir="ltr">{ready ? joinSiteOrigin(origin, "/") : "https://irad-eight.vercel.app"}</span>
+            — هذه صفحة اختيار، وليست /irad.
           </p>
         )}
       </section>
@@ -194,14 +194,14 @@ export function AmazonApplyGuide() {
           <li>
             ضع بريد تواصل حقيقي في إعدادات الاستضافة:{" "}
             <span dir="ltr">NEXT_PUBLIC_CONTACT_EMAIL</span> حتى يظهر في{" "}
-            <Link href="/site/contact" className="underline">
+            <Link href="/contact" className="underline">
               صفحة التواصل
             </Link>
             .
           </li>
           <li>
             افتح{" "}
-            <Link href="/site" className="underline">
+            <Link href="/" className="underline">
               اختيار
             </Link>{" "}
             من هاتفك عبر الرابط العلني، لا من جهاز التطوير.

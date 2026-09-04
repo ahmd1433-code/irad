@@ -134,7 +134,7 @@ export function runAgent(input: {
           title: "إنفاق أو إعلان مدفوع",
           detail: "الوكيل لا يشغّل إعلانات ولا يشتري بضاعة. استخدم الحاسبة أولًا ثم ادفع بنفسك إن قررت.",
           gate: "locked",
-          href: "/calculator",
+          href: "/irad/calculator",
         },
         n++
       )
@@ -231,7 +231,7 @@ export function runAgent(input: {
             title: `اعتماد مسار: ${playbookTitle}`,
             detail: playbook?.subtitle ?? "",
             slug: playbookSlug,
-            href: `/playbooks/${playbookSlug}`,
+            href: `/irad/playbooks/${playbookSlug}`,
             gate: gateFor(input.permissions, "pick_path"),
             permission: "pick_path",
           },

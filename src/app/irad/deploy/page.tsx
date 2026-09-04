@@ -18,7 +18,7 @@ export default function DeployPage() {
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
         النطاق العلني هنا يعني عنوان https يفتح من هاتف صديقك. بعد أن يعمل، ارجع
         إلى{" "}
-        <Link href="/apply/amazon" className="text-foreground underline">
+        <Link href="/irad/apply/amazon" className="text-foreground underline">
           تعبئة طلب أمازون
         </Link>{" "}
         والصق الرابط هناك.

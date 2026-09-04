@@ -20,7 +20,7 @@ export default function AboutPage() {
         </p>
         <p>
           عندما يحتوي المقال على رابط قد يدرّ عمولة، نذكر ذلك في الصفحة وفي{" "}
-          <Link href="/site/disclosure" className="text-foreground underline">
+          <Link href="/disclosure" className="text-foreground underline">
             إفصاح العمولة
           </Link>
           . الترتيب في النص حسب فائدة القارئ لا حسب أعلى نسبة.

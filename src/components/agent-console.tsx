@@ -310,7 +310,7 @@ function RunCard({ run }: { run: AgentRun }) {
         <p className="mt-2 text-sm leading-7 text-muted-foreground">
           {run.summary}
         </p>
-        <Link href="/plan" className="mt-3 inline-block text-sm text-primary">
+        <Link href="/irad/plan" className="mt-3 inline-block text-sm text-primary">
           اعرض خطتي بعد التنفيذ
         </Link>
       </div>

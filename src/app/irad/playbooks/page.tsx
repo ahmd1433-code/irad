@@ -20,7 +20,7 @@ export default function PlaybooksPage() {
         {playbooks.map((playbook) => (
           <Link
             key={playbook.slug}
-            href={`/playbooks/${playbook.slug}`}
+            href={`/irad/playbooks/${playbook.slug}`}
             className="rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-md"
           >
             <p className="text-xs text-muted-foreground">{playbook.duration}</p>

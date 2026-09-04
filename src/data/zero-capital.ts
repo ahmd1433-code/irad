@@ -3,37 +3,37 @@ export const zeroCapitalPack = [
     slug: "amazon-associates",
     weekTask:
       "انشر مقال مقارنة على موقع اختيار، ثم قدّم على أسوشيتس لمتجر بلد جمهورك بعد أن يصبح الرابط علنيًا.",
-    siteHrefs: ["/site/vacuum-for-gulf-homes", "/site/first-baby-kit"],
+    siteHrefs: ["/vacuum-for-gulf-homes", "/first-baby-kit"],
   },
   {
     slug: "awin",
     weekTask:
       "جهّز صفحة من نحن والخصوصية، وقدّم كناشر. اطلب لاحقًا علامات تشحن للخليج لا كل الكتالوج.",
-    siteHrefs: ["/site/about", "/site/privacy"],
+    siteHrefs: ["/about", "/privacy"],
   },
   {
     slug: "booking-affiliate",
     weekTask:
       "اكتب دليل إقامة لمدينة يزورها جمهورك. العمولة بعد الإقامة لا بعد النقرة.",
-    siteHrefs: ["/site/dubai-three-days"],
+    siteHrefs: ["/dubai-three-days"],
   },
   {
     slug: "tiktok-shop",
     weekTask:
       "اربط الحساب إن كان متاحًا في بلدك. صوّر منتجًا واحدًا تحلّ مشكلة واضحة في ثلاثين ثانية. بلا إعلان مدفوع.",
-    siteHrefs: ["/site"],
+    siteHrefs: ["/"],
   },
   {
     slug: "aliexpress-affiliate",
     weekTask:
       "اختر منتجات تقييمها عالٍ واذكر زمن الشحن للخليج بصراحة. لا تسوّق «أرخص شيء».",
-    siteHrefs: ["/site/vacuum-for-gulf-homes"],
+    siteHrefs: ["/vacuum-for-gulf-homes"],
   },
   {
     slug: "jumia-affiliate",
     weekTask:
       "إن كان جمهورك في مصر، ابدأ بعروض أجهزة وموسم الدراسة. تجاهله إن كان جمهورك خليجيًا فقط.",
-    siteHrefs: ["/site"],
+    siteHrefs: ["/"],
   },
 ] as const;
 

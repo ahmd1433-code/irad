@@ -9,38 +9,39 @@ export function SiteFooter() {
           <p className="mt-2 text-sm leading-7 text-muted-foreground">
             دليل عملي لبرامج التسويق بالعمولة والدروب شيبينغ وإعادة البيع.
             النسب والشروط تتغير؛ تحقق دائمًا من الصفحة الرسمية قبل التسجيل.
-            هذا المحتوى تعليمي وليس استشارة مالية.
+            هذا المحتوى تعليمي وليس استشارة مالية. هذه الصفحات ليست جزءًا من
+            موقع «اختيار» الذي يراجعه أمازون.
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <Link href="/programs" className="hover:text-primary">
+          <Link href="/irad/programs" className="hover:text-primary">
             البرامج
           </Link>
-          <Link href="/playbooks" className="hover:text-primary">
+          <Link href="/irad/playbooks" className="hover:text-primary">
             المسارات
           </Link>
-          <Link href="/calculator" className="hover:text-primary">
+          <Link href="/irad/calculator" className="hover:text-primary">
             الحاسبة
           </Link>
-          <Link href="/compare" className="hover:text-primary">
+          <Link href="/irad/compare" className="hover:text-primary">
             المقارنة
           </Link>
-          <Link href="/zero" className="hover:text-primary">
+          <Link href="/irad/zero" className="hover:text-primary">
             بلا رأس مال
           </Link>
-          <Link href="/deploy" className="hover:text-primary">
+          <Link href="/irad/deploy" className="hover:text-primary">
             نطاق علني
           </Link>
-          <Link href="/apply/amazon" className="hover:text-primary">
+          <Link href="/irad/apply/amazon" className="hover:text-primary">
             طلب أمازون
           </Link>
-          <Link href="/site" className="hover:text-primary">
+          <Link href="/" className="hover:text-primary">
             موقع المحتوى
           </Link>
-          <Link href="/agent" className="hover:text-primary">
+          <Link href="/irad/agent" className="hover:text-primary">
             الوكيل
           </Link>
-          <Link href="/plan" className="hover:text-primary">
+          <Link href="/irad/plan" className="hover:text-primary">
             خطتي
           </Link>
         </div>

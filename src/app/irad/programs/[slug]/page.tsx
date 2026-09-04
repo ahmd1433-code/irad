@@ -51,7 +51,7 @@ export default async function ProgramDetailPage({
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10">
       <p className="text-sm text-muted-foreground">
-        <Link href="/programs" className="hover:text-primary">
+        <Link href="/irad/programs" className="hover:text-primary">
           البرامج
         </Link>
         <span className="mx-2">/</span>
@@ -97,7 +97,7 @@ export default async function ProgramDetailPage({
           </a>
           {program.slug === "amazon-associates" ? (
             <Link
-              href="/apply/amazon"
+              href="/irad/apply/amazon"
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 "justify-center"
@@ -162,7 +162,7 @@ export default async function ProgramDetailPage({
         <p className="mt-6 text-sm">
           مسار عملي مرتبط:{" "}
           <Link
-            href={`/playbooks/${relatedPlaybook.slug}`}
+            href={`/irad/playbooks/${relatedPlaybook.slug}`}
             className="font-medium text-primary hover:underline"
           >
             {relatedPlaybook.title}

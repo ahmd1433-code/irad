@@ -7,11 +7,10 @@ export default function NotFound() {
     <div className="mx-auto flex w-full max-w-lg flex-col items-center px-4 py-24 text-center">
       <h1 className="text-2xl font-semibold">الصفحة غير موجودة</h1>
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
-        الرابط لا يطابق برنامجًا أو مسارًا في الدليل. ارجع إلى البرامج أو الصفحة
-        الرئيسية.
+        الرابط لا يطابق صفحة في الموقع.
       </p>
-      <Link href="/programs" className={cn(buttonVariants(), "mt-6")}>
-        دليل البرامج
+      <Link href="/" className={cn(buttonVariants(), "mt-6")}>
+        اختيار
       </Link>
     </div>
   );

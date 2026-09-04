@@ -177,7 +177,7 @@ export function PathQuiz() {
                 return (
                   <Link
                     key={slug}
-                    href={`/programs/${slug}`}
+                    href={`/irad/programs/${slug}`}
                     className="rounded-full border border-border bg-background px-3 py-1.5 text-xs hover:border-primary"
                   >
                     {program.nameAr}
@@ -187,7 +187,7 @@ export function PathQuiz() {
             </div>
             <div className="flex flex-wrap gap-2">
               <Link
-                href={`/playbooks/${result.playbookSlug}`}
+                href={`/irad/playbooks/${result.playbookSlug}`}
                 className={cn(buttonVariants())}
               >
                 اقرأ المسار كاملًا

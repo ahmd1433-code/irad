@@ -46,10 +46,10 @@ export function PublicDomainGuide() {
       <p className="text-sm leading-7 text-muted-foreground">
         ما تلصقه في أمازون بعد النجاح:{" "}
         <span dir="ltr" className="font-medium text-foreground">
-          https://نطاقك.vercel.app/site
+          https://نطاقك.vercel.app
         </span>{" "}
-        — مسار <span dir="ltr">/site</span> هو موقع «اختيار»، لا الصفحة الرئيسية
-        لإيراد.
+        (الصفحة الرئيسية صارت «اختيار»). لا تلصق{" "}
+        <span dir="ltr">/irad</span> — أمازون لا يجب أن يرى دليل التخطيط.
       </p>
     </div>
   );

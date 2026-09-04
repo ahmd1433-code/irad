@@ -77,7 +77,7 @@ export function CompareBoard() {
                 {chosen.map((program) => (
                   <th key={program.slug} className="p-4 font-medium">
                     <Link
-                      href={`/programs/${program.slug}`}
+                      href={`/irad/programs/${program.slug}`}
                       className="hover:text-primary hover:underline"
                     >
                       {program.nameAr}

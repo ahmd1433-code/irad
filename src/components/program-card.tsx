@@ -60,7 +60,7 @@ export function ProgramCard({
       </CardContent>
       <CardFooter>
         <Link
-          href={`/programs/${program.slug}`}
+          href={`/irad/programs/${program.slug}`}
           className="text-sm font-medium text-primary hover:underline"
         >
           تفاصيل البرنامج

@@ -2,18 +2,18 @@ import Link from "next/link";
 import { publisher } from "@/data/publisher";
 
 const links = [
-  { href: "/site", label: "الرئيسية" },
-  { href: "/site/about", label: "من نحن" },
-  { href: "/site/disclosure", label: "إفصاح العمولة" },
-  { href: "/site/privacy", label: "الخصوصية" },
-  { href: "/site/contact", label: "تواصل" },
+  { href: "/", label: "الرئيسية" },
+  { href: "/about", label: "من نحن" },
+  { href: "/disclosure", label: "إفصاح العمولة" },
+  { href: "/privacy", label: "الخصوصية" },
+  { href: "/contact", label: "تواصل" },
 ];
 
 export function PublisherHeader() {
   return (
     <header className="border-b border-border bg-background">
       <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-4">
-        <Link href="/site" className="leading-tight">
+        <Link href="/" className="leading-tight">
           <span className="block text-lg font-semibold">{publisher.name}</span>
           <span className="block text-[11px] text-muted-foreground">
             {publisher.nameEn}
@@ -38,11 +38,11 @@ export function PublisherFooter() {
         <p>
           {publisher.name} موقع محتوى مستقل عن منصات البيع. بعض الروابط قد تكون
           روابط عمولة. راجع{" "}
-          <Link href="/site/disclosure" className="text-foreground underline">
+          <Link href="/disclosure" className="text-foreground underline">
             إفصاح العمولة
           </Link>{" "}
           و{" "}
-          <Link href="/site/privacy" className="text-foreground underline">
+          <Link href="/privacy" className="text-foreground underline">
             سياسة الخصوصية
           </Link>
           .

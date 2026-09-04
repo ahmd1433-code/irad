@@ -63,14 +63,14 @@ export function ZeroCapitalSetup() {
               <div className="mt-3 flex flex-wrap gap-2">
                 {program.slug === "amazon-associates" ? (
                   <Link
-                    href="/apply/amazon"
+                    href="/irad/apply/amazon"
                     className="text-xs font-medium text-primary hover:underline"
                   >
                     تعبئة الموقع والجوال
                   </Link>
                 ) : null}
                 <Link
-                  href={`/programs/${program.slug}`}
+                  href={`/irad/programs/${program.slug}`}
                   className="text-xs text-primary hover:underline"
                 >
                   تفاصيل البرنامج
@@ -94,7 +94,7 @@ export function ZeroCapitalSetup() {
         <p className="rounded-2xl bg-primary p-5 text-sm leading-7 text-primary-foreground">
           أُضيفت الحزمة إلى خطتك مع ملاحظات الأسبوع، وجُعل ملف الوكيل «بلا رأس
           مال». سجّل في المنصات بنفسك بعد نشر موقع اختيار على نطاق عام.{" "}
-          <Link href="/plan" className="underline">
+          <Link href="/irad/plan" className="underline">
             افتح خطتي
           </Link>
         </p>

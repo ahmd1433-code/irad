@@ -38,7 +38,7 @@ export default async function ArticlePage({
       <p className="mt-4 rounded-xl bg-secondary p-4 text-sm leading-7 text-muted-foreground">
         إفصاح: قد يحتوي المقال على روابط عمولة. إن اشتريت عبرها قد نحصل على
         عمولة. التفاصيل في{" "}
-        <Link href="/site/disclosure" className="underline">
+        <Link href="/disclosure" className="underline">
           صفحة الإفصاح
         </Link>
         .

@@ -26,37 +26,37 @@ export const amazonProgramUrls = [
 export const amazonSitePages = [
   {
     amazonField: "Website URL — الموقع الأساسي",
-    path: "/site",
-    why: "هذا عنوان «اختيار» الذي يراجعه أمازون. لا تلصق الصفحة الرئيسية لإيراد.",
+    path: "/",
+    why: "الصفحة الرئيسية لموقع اختيار. لا تلصق مسار /irad — ذلك دليل التخطيط وليس للمراجع.",
   },
   {
     amazonField: "Additional websites — صفحات إضافية",
-    path: "/site/about",
+    path: "/about",
     why: "من نحن: يوضح أنك موقع تحريري ولست متجر أمازون.",
   },
   {
     amazonField: "Additional websites",
-    path: "/site/privacy",
+    path: "/privacy",
     why: "سياسة خصوصية — مطلوبة غالبًا للقبول.",
   },
   {
     amazonField: "Additional websites",
-    path: "/site/disclosure",
+    path: "/disclosure",
     why: "إفصاح العمولة — شرط أمانة.",
   },
   {
     amazonField: "Additional websites",
-    path: "/site/contact",
+    path: "/contact",
     why: "تواصل ببريد ظاهر على الصفحة بعد النشر.",
   },
   {
     amazonField: "مقال للمراجعة",
-    path: `/site/${articles[0]?.slug ?? "vacuum-for-gulf-homes"}`,
+    path: `/${articles[0]?.slug ?? "vacuum-for-gulf-homes"}`,
     why: "دليل شراء أصلي بالعربية، ليس قائمة روابط.",
   },
   {
     amazonField: "مقال للمراجعة",
-    path: `/site/${articles[1]?.slug ?? "first-baby-kit"}`,
+    path: `/${articles[1]?.slug ?? "first-baby-kit"}`,
     why: "مقال ثانٍ يُظهر أن الموقع ليس صفحة واحدة.",
   },
 ] as const;

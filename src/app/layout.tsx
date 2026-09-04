@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { publisher } from "@/data/publisher";
 import "./globals.css";
 
 const plex = IBM_Plex_Sans_Arabic({
@@ -10,11 +11,10 @@ const plex = IBM_Plex_Sans_Arabic({
 
 export const metadata: Metadata = {
   title: {
-    default: "إيراد — دليل برامج الشراكة وإعادة البيع",
-    template: "%s | إيراد",
+    default: `${publisher.name} — ${publisher.tagline}`,
+    template: `%s | ${publisher.name}`,
   },
-  description:
-    "كيف تستفيد من برامج أمازون وإيباي وعلي إكسبريس ونون وتيك توك والشبكات لرفع إيراداتك: تسويق بالعمولة، دروب شيبينغ، وإعادة بيع.",
+  description: publisher.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

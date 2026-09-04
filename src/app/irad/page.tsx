@@ -29,11 +29,11 @@ export default function HomePage() {
               اختر النموذج، ثم البرنامج، ثم خطوة واحدة هذا الأسبوع.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/zero" className={cn(buttonVariants({ size: "lg" }))}>
+              <Link href="/irad/zero" className={cn(buttonVariants({ size: "lg" }))}>
                 جهّز برامج بلا رأس مال
               </Link>
               <Link
-                href="/site"
+                href="/"
                 className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
               >
                 موقع المحتوى
@@ -61,7 +61,7 @@ export default function HomePage() {
                 {modelHints[model]}
               </p>
               <Link
-                href={`/programs?model=${model}`}
+                href={`/irad/programs?model=${model}`}
                 className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
               >
                 برامج هذا النموذج
@@ -96,7 +96,7 @@ export default function HomePage() {
               المنصات التي سألت عنها، وأخرى تعمل في السوق العربي.
             </p>
           </div>
-          <Link href="/programs" className="text-sm font-medium text-primary">
+          <Link href="/irad/programs" className="text-sm font-medium text-primary">
             الدليل كاملًا
           </Link>
         </div>

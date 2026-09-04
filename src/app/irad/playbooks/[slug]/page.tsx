@@ -37,7 +37,7 @@ export default async function PlaybookDetailPage({
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10">
       <p className="text-sm text-muted-foreground">
-        <Link href="/playbooks" className="hover:text-primary">
+        <Link href="/irad/playbooks" className="hover:text-primary">
           المسارات
         </Link>
         <span className="mx-2">/</span>

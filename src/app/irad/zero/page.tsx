@@ -19,11 +19,11 @@ export default function ZeroCapitalPage() {
         هذا ليس دروب شيبينغ ولا FBA. أنت تسوّق محتوى، والمنصة تبيع. الحزمة
         تضيف البرامج إلى خطتك وتربطها بمقالات موقع اختيار. التسجيل الرسمي
         والضريبة يبقيان بيدك. أولًا{" "}
-        <Link href="/deploy" className="text-foreground underline">
+        <Link href="/irad/deploy" className="text-foreground underline">
           انشر نطاقًا علنيًا
         </Link>
         ، ثم عبّئ{" "}
-        <Link href="/apply/amazon" className="text-foreground underline">
+        <Link href="/irad/apply/amazon" className="text-foreground underline">
           طلب أمازون
         </Link>
         .

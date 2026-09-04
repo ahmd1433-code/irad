@@ -47,5 +47,6 @@ export function joinSiteOrigin(origin: string, path: string): string {
   const base = normalizeSiteOrigin(origin);
   if (!base) return path;
   const suffix = path.startsWith("/") ? path : `/${path}`;
+  if (suffix === "/") return base;
   return `${base}${suffix}`;
 }

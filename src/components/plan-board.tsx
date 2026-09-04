@@ -16,7 +16,7 @@ export function SaveProgramButton({ slug }: { slug: string }) {
     return (
       <div className="flex flex-wrap gap-2">
         <Link
-          href="/plan"
+          href="/irad/plan"
           className={cn(buttonVariants({ variant: "secondary" }), "justify-center")}
         >
           داخل خطتك — اعرضها
@@ -55,7 +55,7 @@ export function PlanBoard() {
           تُحفظ في هذا المتصفح فقط.
         </p>
         <Link
-          href="/programs"
+          href="/irad/programs"
           className={cn(buttonVariants(), "mt-5 inline-flex")}
         >
           تصفح البرامج
@@ -77,7 +77,7 @@ export function PlanBoard() {
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <Link
-                  href={`/programs/${program.slug}`}
+                  href={`/irad/programs/${program.slug}`}
                   className="text-lg font-semibold hover:text-primary"
                 >
                   {program.nameAr}

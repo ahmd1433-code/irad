@@ -17,7 +17,7 @@ export default function PublisherHomePage() {
           <li key={article.slug} className="border-b border-border pb-6">
             <p className="text-xs text-muted-foreground">{article.category}</p>
             <h2 className="mt-1 text-xl font-semibold">
-              <Link href={`/site/${article.slug}`} className="hover:text-primary">
+              <Link href={`/${article.slug}`} className="hover:text-primary">
                 {article.title}
               </Link>
             </h2>

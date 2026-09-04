@@ -7,17 +7,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (!base) return [];
 
   const paths = [
-    "/site",
-    "/site/about",
-    "/site/privacy",
-    "/site/disclosure",
-    "/site/contact",
-    ...articles.map((article) => `/site/${article.slug}`),
+    "/",
+    "/about",
+    "/privacy",
+    "/disclosure",
+    "/contact",
+    ...articles.map((article) => `/${article.slug}`),
   ];
 
   return paths.map((path) => ({
-    url: `${base}${path}`,
+    url: path === "/" ? base : `${base}${path}`,
     changeFrequency: "weekly" as const,
-    priority: path === "/site" ? 1 : 0.7,
+    priority: path === "/" ? 1 : 0.7,
   }));
 }

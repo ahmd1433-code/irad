@@ -7,27 +7,27 @@ export const metadata: Metadata = { title: "تجهيز الموقع للتقدي
 const checks = [
   {
     title: "موقع محتوى أصلي",
-    href: "/site",
+    href: "/",
     body: "اختيار: خمسة أدلة شراء بالعربية، ليست قائمة روابط.",
   },
   {
     title: "من نحن",
-    href: "/site/about",
+    href: "/about",
     body: "يوضح من يكتب ولماذا، وأنكم لستم متجر أمازون.",
   },
   {
     title: "سياسة خصوصية",
-    href: "/site/privacy",
+    href: "/privacy",
     body: "مطلوبة لشبكات العمولة وكثير من برامج أمازون.",
   },
   {
     title: "إفصاح العمولة",
-    href: "/site/disclosure",
+    href: "/disclosure",
     body: "شرط أمانة للمعلن وللمنصات.",
   },
   {
     title: "صفحة تواصل",
-    href: "/site/contact",
+    href: "/contact",
     body: "جهة اتصال ظاهرة. ضع بريدك الحقيقي قبل التقديم.",
   },
 ];
@@ -39,11 +39,11 @@ export default function SiteChecklistPage() {
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
         أمازون أسوشيتس وأوين وبوكينغ يطلبون موقعًا حيًا بمحتوى حقيقي لا
         localhost على جهازك فقط.{" "}
-        <Link href="/deploy" className="text-foreground underline">
+        <Link href="/irad/deploy" className="text-foreground underline">
           كيف تحصل على نطاق علني
         </Link>{" "}
         ثم عبّئ{" "}
-        <Link href="/apply/amazon" className="text-foreground underline">
+        <Link href="/irad/apply/amazon" className="text-foreground underline">
           طلب أسوشيتس
         </Link>
         .
@@ -66,7 +66,7 @@ export default function SiteChecklistPage() {
         <ul className="mt-3 list-disc ps-5">
           {articles.map((article) => (
             <li key={article.slug}>
-              <Link href={`/site/${article.slug}`} className="hover:text-primary">
+              <Link href={`/${article.slug}`} className="hover:text-primary">
                 {article.title}
               </Link>
             </li>
