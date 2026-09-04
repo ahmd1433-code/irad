@@ -61,6 +61,14 @@ export function ZeroCapitalSetup() {
                 {item.weekTask}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
+                {program.slug === "amazon-associates" ? (
+                  <Link
+                    href="/apply/amazon"
+                    className="text-xs font-medium text-primary hover:underline"
+                  >
+                    تعبئة الموقع والجوال
+                  </Link>
+                ) : null}
                 <Link
                   href={`/programs/${program.slug}`}
                   className="text-xs text-primary hover:underline"

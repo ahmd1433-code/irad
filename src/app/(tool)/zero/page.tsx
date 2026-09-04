@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ZeroCapitalSetup } from "@/components/zero-capital-setup";
 
 export const metadata: Metadata = {
@@ -17,7 +18,11 @@ export default function ZeroCapitalPage() {
       <p className="mt-3 text-sm leading-7 text-muted-foreground">
         هذا ليس دروب شيبينغ ولا FBA. أنت تسوّق محتوى، والمنصة تبيع. الحزمة
         تضيف البرامج إلى خطتك وتربطها بمقالات موقع اختيار. التسجيل الرسمي
-        والضريبة يبقيان بيدك.
+        والضريبة يبقيان بيدك. إذا فتح أمازون حقول الموقع والجوال،{" "}
+        <Link href="/apply/amazon" className="text-foreground underline">
+          هذه صفحة التعبئة
+        </Link>
+        .
       </p>
       <div className="mt-8">
         <ZeroCapitalSetup />

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/zero", label: "بلا رأس مال" },
+  { href: "/apply/amazon", label: "طلب أمازون" },
   { href: "/programs", label: "البرامج" },
   { href: "/playbooks", label: "المسارات" },
   { href: "/calculator", label: "حاسبة الإيراد" },

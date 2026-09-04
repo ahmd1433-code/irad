@@ -1,63 +1,34 @@
-"use client";
+import type { Metadata } from "next";
+import { ContactForm } from "@/components/contact-form";
+import { getContactEmail, publisher } from "@/data/publisher";
 
-import { useState } from "react";
-import { publisher } from "@/data/publisher";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+export const metadata: Metadata = { title: "تواصل" };
 
 export default function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const email = getContactEmail();
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-12">
       <h1 className="text-3xl font-semibold">تواصل</h1>
       <p className="mt-4 text-sm leading-8 text-muted-foreground">
-        للتصحيحات والشكاوى والشراكات الإعلامية. لا نستخدم هذا النموذج للتسجيل في
-        أمازون بالنيابة عنك. {publisher.emailPlaceholder}.
+        للتصحيحات والشكاوى واقتراحات المقالات. {publisher.name} موقع محتوى، ولسنا
+        خدمة عملاء لمتجر إلكتروني.
       </p>
-      {sent ? (
-        <p className="mt-8 rounded-2xl bg-secondary p-5 text-sm leading-7">
-          وصلت الرسالة على هذا الجهاز فقط كتأكيد محلي. اربط النموذج لاحقًا
-          ببريدك أو خدمة نماذج عندما تنشر الموقع على نطاق عام.
+      {email ? (
+        <p className="mt-4 text-sm leading-8">
+          البريد:{" "}
+          <a href={`mailto:${email}`} className="font-medium text-primary underline">
+            {email}
+          </a>
         </p>
       ) : (
-        <form
-          className="mt-8 space-y-4"
-          onSubmit={(event) => {
-            event.preventDefault();
-            setSent(true);
-          }}
-        >
-          <label className="block text-sm">
-            الاسم
-            <input
-              required
-              name="name"
-              className="mt-1 h-10 w-full rounded-lg border border-input bg-transparent px-3"
-            />
-          </label>
-          <label className="block text-sm">
-            البريد
-            <input
-              required
-              type="email"
-              name="email"
-              className="mt-1 h-10 w-full rounded-lg border border-input bg-transparent px-3"
-            />
-          </label>
-          <label className="block text-sm">
-            الرسالة
-            <textarea
-              required
-              name="message"
-              className="mt-1 min-h-32 w-full rounded-lg border border-input bg-transparent p-3"
-            />
-          </label>
-          <button type="submit" className={cn(buttonVariants({ size: "lg" }))}>
-            إرسال
-          </button>
-        </form>
+        <p className="mt-4 text-sm leading-8 text-muted-foreground">
+          ضع بريد الناشر في متغير{" "}
+          <span dir="ltr">NEXT_PUBLIC_CONTACT_EMAIL</span> عند النشر حتى يظهر
+          هنا لمراجع البرامج.
+        </p>
       )}
+      <ContactForm />
     </article>
   );
 }

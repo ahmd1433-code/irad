@@ -95,6 +95,17 @@ export default async function ProgramDetailPage({
           >
             صفحة التسجيل الرسمية
           </a>
+          {program.slug === "amazon-associates" ? (
+            <Link
+              href="/apply/amazon"
+              className={cn(
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "justify-center"
+              )}
+            >
+              ماذا أكتب في الموقع والجوال
+            </Link>
+          ) : null}
           <SaveProgramButton slug={program.slug} />
         </div>
       </div>

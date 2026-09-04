@@ -47,12 +47,6 @@ export function PublisherFooter() {
           </Link>
           .
         </p>
-        <p className="mt-3">
-          أداة التخطيط:{" "}
-          <Link href="/" className="text-foreground underline">
-            إيراد
-          </Link>
-        </p>
       </div>
     </footer>
   );

@@ -4,8 +4,12 @@ export const publisher = {
   tagline: "دليل شراء عربي للمنتجات التي تُستخدم كل يوم في البيت والعمل.",
   description:
     "مقالات مقارنة وشرح عملي لمساعدة المشتري العربي على القرار، مع إفصاح واضح عندما يحتوي النص على روابط عمولة.",
-  emailPlaceholder: "أضف بريد تواصل حقيقي قبل تقديم أمازون",
+  contactEmail: (process.env.NEXT_PUBLIC_CONTACT_EMAIL || "").trim(),
 };
+
+export function getContactEmail() {
+  return publisher.contactEmail;
+}
 
 export type Article = {
   slug: string;
